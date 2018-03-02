@@ -1,0 +1,3 @@
+class TestsPassage < ApplicationRecord
+
+end

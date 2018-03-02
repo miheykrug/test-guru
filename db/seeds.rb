@@ -36,12 +36,16 @@ Answer.create([
   { body: 'язык структурированных запросов',
     correct: false, question_id: questions[4].id }])
 
-User.create([
+users = User.create([
   { name: 'Миша', email: 'miheykrug@mail.ru'},
   { name: 'Саша', email: 'sasha2013@gmail.com'}])
 
-connection = ActiveRecord::Base.connection()
-connection.execute('
-INSERT INTO users_tests(user_id, test_id) VALUES
-(1, 1), (1, 3), (1, 4), (1, 5),
-(2, 1), (2, 2), (2, 3), (2, 5);')
+TestsPassage.create([
+  { user_id: users[0].id, test_id: tests[0].id },
+  { user_id: users[0].id, test_id: tests[2].id },
+  { user_id: users[0].id, test_id: tests[3].id },
+  { user_id: users[0].id, test_id: tests[4].id },
+  { user_id: users[1].id, test_id: tests[0].id },
+  { user_id: users[1].id, test_id: tests[1].id },
+  { user_id: users[1].id, test_id: tests[2].id },
+  { user_id: users[1].id, test_id: tests[4].id }])
