@@ -5,3 +5,43 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+categories = Category.create([
+  { title: 'Frontend' },
+  { title: 'Backend'},
+  { title: 'Other' }])
+
+tests = Test.create([
+  { title: 'HTML', category_id: categories[0].id },
+  { title: 'CSS',  category_id: categories[0].id },
+  { title: 'Ruby', level: 2, category_id: categories[1].id },
+  { title: 'Go',   level: 3, category_id: categories[1].id },
+  { title: 'SQL',  level: 1, category_id: categories[2].id }])
+
+questions = Question.create([
+  { body: 'Что такое Ruby?',                          test_id: tests[2].id },
+  { body: 'Назовите тип языка Go',                    test_id: tests[3].id },
+  { body: 'Что обозначает тег div?',                  test_id: tests[0].id },
+  { body: 'Какая разница между сторами и символами?', test_id: tests[2].id },
+  { body: 'Как расшифровывается аббревиатура SQL?',   test_id: tests[4].id }])
+
+Answer.create([
+  { body: 'это драгоценный камень',
+    correct: false, question_id: questions[0].id },
+  { body: 'компилируемый',
+    correct: true,  question_id: questions[1].id },
+  { body: 'это блочный элемент',
+    correct: true,  question_id: questions[2].id },
+  { body: 'разницы нет',
+    correct: false, question_id: questions[3].id },
+  { body: 'язык структурированных запросов',
+    correct: false, question_id: questions[4].id }])
+
+User.create([
+  { name: 'Миша', email: 'miheykrug@mail.ru'},
+  { name: 'Саша', email: 'sasha2013@gmail.com'}])
+
+connection = ActiveRecord::Base.connection()
+connection.execute('
+INSERT INTO users_tests(user_id, test_id) VALUES
+(1, 1), (1, 3), (1, 4), (1, 5),
+(2, 1), (2, 2), (2, 3), (2, 5);')
