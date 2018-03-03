@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180302140208) do
+ActiveRecord::Schema.define(version: 20180303123047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20180302140208) do
     t.integer  "author_id"
     t.index ["author_id"], name: "index_tests_on_author_id", using: :btree
     t.index ["category_id"], name: "index_tests_on_category_id", using: :btree
+    t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true, using: :btree
   end
 
   create_table "tests_passages", force: :cascade do |t|
