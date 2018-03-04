@@ -15,8 +15,11 @@ class Test < ApplicationRecord
   scope :easy,   -> { where(level: 0..1) }
   scope :medium, -> { where(level: 2..4) }
   scope :hard,   -> { where('level > 4') }
-  scope :category_tests_list, -> (category) { joins('JOIN categories
-    ON category_id = categories.id')
+  scope :by_category, -> (category) { joins(:category)
     .where('categories.title = :category', category: category)
-    .order(title: :desc).pluck(:title) }
+    .order(title: :desc) }
+
+  def self.category_tests_list(category)
+    self.by_category(category).pluck(:title)
+  end
 end

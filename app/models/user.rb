@@ -7,10 +7,6 @@ class User < ApplicationRecord
 
 
   def user_tests(level)
-    Test.joins('
-      JOIN tests_passages
-      ON tests.id = tests_passages.test_id')
-      .where('tests_passages.user_id = :user_id AND level = :level',
-      user_id: self.id, level: level)
+    tests.where('level = :level', level: level)
   end
 end

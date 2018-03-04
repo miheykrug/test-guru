@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(version: 20180303123047) do
     t.integer  "test_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id", "test_id"], name: "index_tests_passages_on_user_id_and_test_id", unique: true, using: :btree
   end
 
   create_table "users", force: :cascade do |t|
