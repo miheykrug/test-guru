@@ -7,6 +7,6 @@ class User < ApplicationRecord
 
 
   def user_tests(level)
-    tests.where('level = :level', level: level)
+    tests.where(level: level)
   end
 end
