@@ -1,16 +1,13 @@
 <h1>Создать новый вопрос</h1>
+
 <h2>Название теста: <%= @test.title %></h2>
+
 <form action="/tests/<%= @test.id %>/questions" method="post">
   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
   <p>
     <label for="question-body">Body:</label>
-    <input type="text" name="body" id="question-body">
+    <input type="text" name="question[body]" id="question-body">
   </p><br>
-
-  <!--<p>-->
-    <!--<label for="question-test">Test id:</label>-->
-    <!--<input type="text" name="question[test_id]" id="question-test">-->
-  <!--</p><br>-->
 
   <input type="submit" value="Создать">
 </form>
