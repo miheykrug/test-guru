@@ -1,0 +1,20 @@
+<p>
+  <strong>Название:</strong>
+  <%= @test.title %>
+</p>
+
+<p>
+  <strong>Уровень:</strong>
+  <%= @test.level %>
+</p>
+
+<table>
+  <tr>
+    <th>Вопросы:</th>
+    <th colspan="3">Действия</th>
+  </tr>
+
+    <%= render @questions %>
+
+
+</table>

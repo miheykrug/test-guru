@@ -2,12 +2,4 @@
 
 <h2>Название теста: <%= @test.title %></h2>
 
-<form action="/tests/<%= @test.id %>/questions" method="post">
-  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-  <p>
-    <label for="question-body">Body:</label>
-    <input type="text" name="question[body]" id="question-body">
-  </p><br>
-
-  <input type="submit" value="Создать">
-</form>
+<%= render 'form' %>
