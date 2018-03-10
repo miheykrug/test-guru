@@ -1,0 +1,19 @@
+<p>
+  <strong>Вопрос:</strong>
+  <%= @question.body %>
+</p>
+<p>
+  <strong>Название теста:</strong>
+  <%= @question.test.title %>
+</p>
+<p>
+  <strong>ID теста:</strong>
+  <%= @question.test_id %>
+</p>
+<%= link_to 'Назад', test_path(@question.test) %> |
+<%= link_to 'Изменить', edit_question_path(@question) %> |
+<%= link_to 'Удалить',
+            question_path(@question),
+            method: :delete,
+            data: { confirm: 'Вы уверены?' }
+%>
