@@ -4,4 +4,10 @@
   <td><%= test.category.title %></td>
   <td><%= test.questions.size %></td>
   <td><%= link_to 'Показать', test_path(test) %></td>
+  <td><%= link_to 'Изменить', edit_test_path(test) %></td>
+  <td><%= link_to 'Удалить',
+                  test_path(test),
+                  method: :delete,
+                  data: { confirm: 'Вы уверены?'} %>
+  </td>
 </tr>

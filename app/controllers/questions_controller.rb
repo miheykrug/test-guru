@@ -18,7 +18,7 @@ class QuestionsController < ApplicationController
     @question = @test.questions.build(question_params)
 
     if @question.save
-      redirect_to question_path(@question)
+      redirect_to @question
     else
       render :new
     end
@@ -26,7 +26,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to question_path(@question)
+      redirect_to @question
     else
       render :edit
     end
