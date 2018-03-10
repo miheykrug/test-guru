@@ -11,20 +11,6 @@
   <body>
     <%= yield %>
 
-    <footer>
-      <hr>
-      <p>Автор: Михаил Круглик <br>
-        Проект:
-        <%= link_to 'Test Guru', github_url('miheykrug', 'test-guru'), :target => '_blank' %>
-        <br>
-        Создание и прохождение различных тестов с публикацией результатов в соц. сетях
-        <br>
-        <%= link_to 'Учебный проект в онлайн-школе Thinknetica',
-                    'http://thinknetica.com/', :target => '_blank' %>
-        <br>
-        <%= current_year %>
-      </p>
-
-    </footer>
+    <%= render 'shared/footer' %>
   </body>
 </html>

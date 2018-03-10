@@ -1,10 +1,10 @@
 module QuestionsHelper
-  def question_header
-    if @question.new_record?
-      str = 'Создать'
+  def question_header(question)
+    action = if question.new_record?
+      'Создать'
     else
-      str = 'Изменить'
+      'Изменить'
     end
-    "#{str} вопрос для теста #{@test.title}"
+    "#{action} вопрос для теста #{question.test.title}"
   end
 end
