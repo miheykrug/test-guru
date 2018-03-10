@@ -1,12 +1,9 @@
-<tr>
-  <td><%= question.body %></td>
-  <td><%= link_to 'Показать', question_path(question) %></td>
-  <td><%= link_to 'Изменить', edit_question_path(question) %></td>
-  <td>
-    <%= link_to 'Удалить',
-                question_path(question),
-                method: :delete,
-                data: { confirm: 'Вы уверены?' }
-    %>
-  </td>
-</tr>
+<li>
+  <%= question.body %><br>
+  <%= link_to 'Показать', question_path(question) %>
+  <%= link_to 'Изменить', edit_question_path(question) %>
+  <%= link_to 'Удалить',
+              question_path(question),
+              method: :delete,
+              data: { confirm: 'Вы уверены?' } %>
+</li>
