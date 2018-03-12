@@ -38,6 +38,18 @@ ActiveRecord::Schema.define(version: 20180303123047) do
     t.index ["test_id"], name: "index_questions_on_test_id", using: :btree
   end
 
+  create_table "test_passages", force: :cascade do |t|
+    t.integer  "user_id",                         null: false
+    t.integer  "test_id",                         null: false
+    t.integer  "current_question_id"
+    t.integer  "correct_questions",   default: 0
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.index ["current_question_id"], name: "index_test_passages_on_current_question_id", using: :btree
+    t.index ["test_id"], name: "index_test_passages_on_test_id", using: :btree
+    t.index ["user_id"], name: "index_test_passages_on_user_id", using: :btree
+  end
+
   create_table "tests", force: :cascade do |t|
     t.string   "title",                   null: false
     t.integer  "level",       default: 0
@@ -50,13 +62,6 @@ ActiveRecord::Schema.define(version: 20180303123047) do
     t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true, using: :btree
   end
 
-  create_table "tests_passages", force: :cascade do |t|
-    t.integer  "user_id",    null: false
-    t.integer  "test_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "name",       null: false
     t.string   "email",      null: false
@@ -66,8 +71,9 @@ ActiveRecord::Schema.define(version: 20180303123047) do
 
   add_foreign_key "answers", "questions"
   add_foreign_key "questions", "tests"
+  add_foreign_key "test_passages", "questions", column: "current_question_id"
+  add_foreign_key "test_passages", "tests"
+  add_foreign_key "test_passages", "users"
   add_foreign_key "tests", "categories"
   add_foreign_key "tests", "users", column: "author_id"
-  add_foreign_key "tests_passages", "tests"
-  add_foreign_key "tests_passages", "users"
 end
