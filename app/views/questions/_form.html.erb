@@ -1,9 +1,9 @@
 <h1><%= question_header(@question) %></h1>
-<%= form_for [@test, @question], local: true do |f| %>
+<%= form_with model: [@test, @question], local: true do |f| %>
   <%= render 'shared/errors', resource: @question %>
   <p>
     <%= f.label :body, 'Вопрос' %>
-    <%= f.text_field :body, id: :question_body %>
+    <%= f.text_field :body, id: :question_body, rows: 7, cols: 60 %>
   </p>
   <p><%= f.submit %></p>
 <% end %>

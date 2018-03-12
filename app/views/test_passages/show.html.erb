@@ -4,10 +4,10 @@
   <%= @test_passage.current_question.body %>
 </p>
 
-<%= form_for @test_passage.current_question, url: test_passage_path(@test_passage), local: true, method: :put do |f| %>
+<%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |f| %>
   <%= f.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
     <p>
-      <%= b.check_box id: "answer_ids_#{b.object.id}", checked: false%>
+      <%= b.check_box id: "answer_ids_#{b.object.id}"%>
       <%= b.label %>
     </p>
   <% end %>
