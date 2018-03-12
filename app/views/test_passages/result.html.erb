@@ -2,5 +2,10 @@
 
 <p>
   <b>Результат: </b>
-  <%= @test_passage.correct_questions %> правильных ответов
+  <% if (result = test_passage_success_percent(@test_passage)) < 85  %>
+    <span class="fail"><%= result %> %. Тест не пройден. </span>
+  <% else %>
+    <span class="success"><%= result %> %. Тест пройден.</span>
+  <% end %>
 </p>
+<%= link_to 'Список тестов', tests_path %>

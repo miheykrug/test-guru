@@ -1,5 +1,7 @@
 <h1>Прохождение теста <%= @test_passage.test.title %></h1>
-
+<p>
+  Вопрос № <%= @test_passage.current_question_number %> из <%= @test_passage.test.questions.count %>
+</p>
 <p>
   <%= @test_passage.current_question.body %>
 </p>
