@@ -1,5 +1,11 @@
 module TestPassagesHelper
-  def test_passage_success_percent(test_passage)
-    (test_passage.correct_questions * 100) / test_passage.test.questions.count
+  def result_class(test_passage)
+    return 'success' if test_passage.test_success?
+    'fail'
+  end
+
+  def result_string(test_passage)
+    return 'Тест пройден' if test_passage.test_success?
+    'Тест не пройден'
   end
 end
