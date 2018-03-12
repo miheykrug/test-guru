@@ -1,0 +1,19 @@
+h1
+  | Прохождение теста
+  =< @test_passage.test.title
+
+p
+  |Вопрос
+  =<> @test_passage.current_question_number
+  |из
+  =< @test_passage.test.questions.count
+
+p = @test_passage.current_question.body
+
+= form_with url: test_passage_path(@test_passage), local: true, method: :put do |f|
+  = f.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b|
+    p
+      = b.check_box id: "answer_ids_#{b.object.id}"
+      = b.label
+
+  p = f.submit 'Следующий вопрос'
