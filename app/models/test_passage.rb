@@ -27,11 +27,11 @@ class TestPassage < ApplicationRecord
   def before_validation_set_current_question
     if new_record?
       self.current_question = test.questions.first
-      self.current_question_number = 1
     else
       self.current_question = test.questions.order(:id).find_by('id > ?', current_question.id)
-      self.current_question_number += 1
     end
+
+    self.current_question_number += 1
   end
 
   def correct_answer?(answer_ids)
