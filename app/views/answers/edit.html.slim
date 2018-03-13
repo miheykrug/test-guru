@@ -1,0 +1,7 @@
+h1 Изменить ответ
+
+p
+  = @answer.question.body
+
+= render 'form'
+= link_to 'Назад', question_path(@answer.question)

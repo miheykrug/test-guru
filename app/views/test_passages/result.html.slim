@@ -1,0 +1,12 @@
+h1
+  | Тест
+  =<> @test_passage.test.title
+  | пройден!
+
+p
+  strong Результат:
+  span class="#{result_class(@test_passage)}"
+    =<> @test_passage.result_to_percent
+    | %.
+    =< result_string(@test_passage)
+= link_to 'Список тестов', tests_path

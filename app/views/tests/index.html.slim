@@ -1,0 +1,13 @@
+h1 Список тестов
+
+p = link_to 'Создать новый тест', new_test_path
+
+table
+  tr
+    th Название
+    th Уровень
+    th Категория
+    th Кол-во<br>вопросов
+    th colspan="4" Действия
+
+  = render @tests

@@ -1,0 +1,14 @@
+h1 Вопрос
+
+p
+  = @answer.question.body
+
+p
+  strong Ответ:
+  =< @answer.body
+
+p
+  strong Верный:
+  =< @answer.correct
+
+= link_to 'Назад', question_path(@answer.question)
