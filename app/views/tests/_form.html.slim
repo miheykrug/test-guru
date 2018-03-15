@@ -13,10 +13,6 @@
     = f.label :category_id
     = f.collection_select :category_id, Category.all, :id, :title, prompt: true
 
-  p
-    = f.label :author_id
-    = f.collection_select :author_id, User.all, :id, :name, prompt: true
-
   p = f.submit
 
 = link_to 'Назад', tests_path
