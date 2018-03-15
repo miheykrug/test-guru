@@ -8,7 +8,7 @@ header
       '|
       .nav.user
         ' Добро пожаловать,
-        b => current_user.name
+        b => current_user.email
     - else
       div =<> link_to 'Войти', new_user_session_path
       '|

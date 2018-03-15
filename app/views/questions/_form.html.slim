@@ -5,4 +5,4 @@ h1 = question_header(@question)
     => f.label :body, 'Вопрос'
     = f.text_field :body, id: :question_body, rows: 7, cols: 60
   p = f.submit
-= link_to 'Назад', test_path(@question.test)
+= link_to 'Назад', admin_test_path(@question.test)

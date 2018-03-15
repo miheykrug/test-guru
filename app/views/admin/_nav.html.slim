@@ -1,0 +1,8 @@
+.nav.nav-admin
+  span.nav-admin.title TestGuru Admin Panel
+
+  .nav-admin.user
+    ' Добро пожаловать,
+    b.nav-admin.user-email => current_user.email
+    ||
+    =<> link_to 'Выйти', destroy_user_session_path, method: :delete

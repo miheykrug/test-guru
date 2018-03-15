@@ -13,7 +13,7 @@ h2 Ответы
 ol
   = render @question.answers
 
-=> link_to 'Назад', test_path(@question.test)
+=> link_to 'Назад', admin_test_path(@question.test)
 | |
 =<> link_to 'Изменить', edit_question_path(@question)
 | |
