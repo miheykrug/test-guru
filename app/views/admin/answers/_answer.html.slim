@@ -1,0 +1,9 @@
+li
+  = answer.body
+  br
+  => link_to 'Показать', admin_answer_path(answer)
+  ||
+  =<> link_to 'Изменить', edit_admin_answer_path(answer)
+  ||
+  =< link_to 'Удалить', admin_answer_path(answer), method: :delete,
+              data: { confirm: 'Вы уверены?' }

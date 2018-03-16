@@ -22,7 +22,7 @@ class Admin::TestsController < Admin::BaseController
     @test = current_user.own_tests.build(test_params)
 
     if @test.save
-      redirect_to @test
+      redirect_to [:admin, @test]
     else
       render :new
     end
@@ -32,7 +32,7 @@ class Admin::TestsController < Admin::BaseController
     @test = Test.find(params[:id])
 
     if @test.update(test_params)
-      redirect_to @test
+      redirect_to [:admin, @test]
     else
       render :edit
     end
@@ -40,12 +40,7 @@ class Admin::TestsController < Admin::BaseController
 
   def destroy
     @test.destroy
-    redirect_to tests_url
-  end
-
-  def start
-    current_user.tests.push(@test)
-    redirect_to current_user.test_passage(@test)
+    redirect_to admin_tests_url
   end
 
   private

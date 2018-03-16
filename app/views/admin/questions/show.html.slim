@@ -8,14 +8,14 @@ p
 
 h2 Ответы
 
-= link_to 'Создать новый ответ', new_question_answer_path(@question)
+= link_to 'Создать новый ответ', new_admin_question_answer_path(@question)
 
 ol
   = render @question.answers
 
 => link_to 'Назад', admin_test_path(@question.test)
 | |
-=<> link_to 'Изменить', edit_question_path(@question)
+=<> link_to 'Изменить', edit_admin_question_path(@question)
 | |
-=< link_to 'Удалить', question_path(@question), method: :delete,
+=< link_to 'Удалить', admin_question_path(@question), method: :delete,
             data: { confirm: 'Вы уверены?' }

@@ -1,7 +1,0 @@
-li
-  = question.body
-  br
-  => link_to 'Показать', question_path(question)
-  => link_to 'Изменить', edit_question_path(question)
-  = link_to 'Удалить', question_path(question), method: :delete,
-            data: { confirm: 'Вы уверены?' }

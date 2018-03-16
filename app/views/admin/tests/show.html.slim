@@ -13,12 +13,12 @@ p
 
 h2 Вопросы
 
-= link_to 'Создать новый вопрос', new_test_question_path(@test)
+= link_to 'Создать новый вопрос', new_admin_test_question_path(@test)
 br
 
 ol
-  /= render @test.questions
-  = render partial: 'questions/question', collection: @test.questions
+  = render @test.questions
+  /= render partial: 'questions/question', collection: @test.questions
 => link_to 'Изменить', edit_admin_test_path
 ||
 =< link_to 'Назад', admin_tests_path
