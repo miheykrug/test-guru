@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protect_from_forgery with: :exception
@@ -11,15 +12,10 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    if resource.is_a?(Admin)
-      admin_tests_path
-    else
-      super
-    end
+    resource.is_a?(Admin) ? admin_tests_path : super
   end
 
   def after_sign_out_path_for(resource)
     new_user_session_path
   end
-
 end
