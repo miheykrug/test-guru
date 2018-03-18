@@ -1,4 +1,4 @@
-<h2>Регитрация нового пользователя</h2>
+<h2><%= t('.header') %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -32,7 +32,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Создать" %>
+    <%= f.submit %>
   </div>
 <% end %>
 

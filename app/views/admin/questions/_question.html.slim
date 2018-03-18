@@ -1,7 +1,9 @@
 li
   = question.body
   br
-  => link_to 'Показать', admin_question_path(question)
-  => link_to 'Изменить', edit_admin_question_path(question)
-  = link_to 'Удалить', admin_question_path(question), method: :delete,
-            data: { confirm: 'Вы уверены?' }
+  => link_to t('links.show'), admin_question_path(question)
+  ||
+  =<> link_to t('links.edit'), edit_admin_question_path(question)
+  ||
+  =< link_to t('links.delete'), admin_question_path(question), method: :delete,
+            data: { confirm: t('links.confirm') }
