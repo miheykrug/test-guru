@@ -1,0 +1,24 @@
+h1
+  | Тест
+  =< @test.title
+
+p
+  strong Уровень:
+  =< @test.level
+
+p
+  strong
+    'Автор:
+  | #{@test.author.first_name} #{@test.author.last_name}
+
+h2 Вопросы
+
+= link_to 'Создать новый вопрос', new_admin_test_question_path(@test)
+br
+
+ol
+  = render @test.questions
+  /= render partial: 'questions/question', collection: @test.questions
+=> link_to 'Изменить', edit_admin_test_path
+||
+=< link_to 'Назад', admin_tests_path
