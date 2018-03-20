@@ -3,7 +3,7 @@ tr
   td = test_level(test)
   td = test.category.title
   td = test.questions.size
-  td = link_to 'Показать', admin_test_path(test)
-  td = link_to 'Изменить', edit_admin_test_path(test)
-  td = link_to 'Удалить', admin_test_path(test), method: :delete,
-              data: { confirm: 'Вы уверены?'}
+  td = link_to t('links.show'), admin_test_path(test)
+  td = link_to t('links.edit'), edit_admin_test_path(test)
+  td = link_to t('links.delete'), admin_test_path(test), method: :delete,
+              data: { confirm: t('links.confirm')}
