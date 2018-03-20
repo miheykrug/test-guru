@@ -1,7 +1,7 @@
 header
-  => link_to 'English', url_for( :lang => 'en' )
+  => link_to 'English', url_for(lang: :en )
   ||
-  =< link_to 'Русский', url_for( :lang => 'ru' )
+  =< link_to 'Русский', url_for(lang: :ru)
   nav
     .app-name
       => link_to 'Test Guru', root_path
