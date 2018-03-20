@@ -1,16 +1,19 @@
 doctype html
 html
   head
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
+
     title Test Guru
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   body
-    = render 'layouts/header'
+    = render 'shared/nav'
 
-    = render 'shared/flash'
-
-    = yield
+    .container
+      = render 'shared/flash'
+      = yield
 
     = render 'layouts/footer'
