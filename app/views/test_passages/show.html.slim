@@ -8,7 +8,8 @@ p
   |из
   =< @test_passage.test.questions.count
 
-p = @test_passage.current_question.body
+p
+  b = @test_passage.current_question.body
 
 = form_with url: test_passage_path(@test_passage), local: true, method: :put do |f|
   = f.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b|
@@ -16,4 +17,5 @@ p = @test_passage.current_question.body
       = b.check_box id: "answer_ids_#{b.object.id}"
       = b.label
 
+  p = link_to 'Gist Question', gist_test_passage_path(@test_passage), method: :post
   p = f.submit 'Следующий вопрос'

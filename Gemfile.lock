@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/bkeepers/dotenv.git
+  revision: a47020f6c414e0a577680b324e61876a690d2200
+  specs:
+    dotenv (2.2.1)
+    dotenv-rails (2.2.1)
+      dotenv (= 2.2.1)
+      railties (>= 3.2, < 5.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -68,6 +77,8 @@ GEM
       warden (~> 1.2.3)
     erubi (1.7.1)
     execjs (2.7.0)
+    faraday (0.14.0)
+      multipart-post (>= 1.2, < 3)
     ffi (1.9.23)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -97,6 +108,7 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.11.3)
     multi_json (1.13.1)
+    multipart-post (2.0.0)
     nio4r (2.2.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
@@ -197,6 +209,8 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   devise (~> 4.0)
+  dotenv-rails!
+  faraday
   jbuilder (~> 2.5)
   jquery-rails
   letter_opener

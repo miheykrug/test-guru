@@ -32,7 +32,13 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# AUTH
+
 gem 'devise', '~> 4.0'
+
+# NETWORKING
+
+gem 'faraday'
 
 # LOCALISATION
 
@@ -40,12 +46,12 @@ gem 'rails-i18n', '~> 5.0.0'
 
 # UI
 
-gem 'jquery-rails'
 gem 'bootstrap', '~> 4.0.0.beta'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'dotenv-rails', github: "bkeepers/dotenv"
 end
 
 group :development do
