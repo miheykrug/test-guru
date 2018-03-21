@@ -40,6 +40,8 @@ gem 'devise', '~> 4.0'
 
 gem 'faraday'
 
+gem 'octokit', '~> 4.0'
+
 # LOCALISATION
 
 gem 'rails-i18n', '~> 5.0.0'
