@@ -22,7 +22,8 @@ class Admin::TestsController < Admin::BaseController
     @test = current_user.own_tests.build(test_params)
 
     if @test.save
-      redirect_to [:admin, @test], notice: t('.success')
+      flash[:info] = t('.success')
+      redirect_to [:admin, @test]
     else
       render :new
     end

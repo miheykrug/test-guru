@@ -1,10 +1,17 @@
 => link_to 'English', url_for(lang: :en)
 ||
-=< link_to 'Русский', url_for(lang: :ru).nav.nav-admin
-  span.nav-admin.title TestGuru Admin Panel
+=< link_to 'Русский', url_for(lang: :ru)
+nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+  => link_to 'Test Guru', root_path, class: 'navbar-brand'
+  button.navbar-toggler type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation"
+    span.navbar-toggler-icon
 
-  .nav-admin.user
+  .collapse.navbar-collapse#navbarText
+    ul.navbar-nav.mr-auto
+      li.navbar-brand Admin Panel
+
+      li.nav-item.active
+        =<> link_to 'Выйти', destroy_user_session_path, method: :delete, class: 'nav-link'
+  span.navbar-text
     ' Добро пожаловать,
     b.nav-admin.user-email => current_user.email
-    ||
-    =<> link_to 'Выйти', destroy_user_session_path, method: :delete
