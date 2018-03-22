@@ -4,6 +4,9 @@ ru:
       test: "Тест"
 
     attributes:
+      gist:
+        question: "Вопрос"
+        user: "Пользователь"
       test:
         title: "Название"
         level: "Уровень"

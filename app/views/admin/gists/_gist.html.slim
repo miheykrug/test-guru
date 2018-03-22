@@ -1,0 +1,4 @@
+tr
+  td = link_to "#{gist.question.body.slice(0,25)}...", admin_question_path(gist.question)
+  td = link_to "#{gist.url}", gist.url, target: '_blank'
+  td = gist.user.email

@@ -1,0 +1,10 @@
+h1 = t('.header')
+
+table.table.table-striped
+  thead.thead-dark
+    tr
+      th = Gist.human_attribute_name('question')
+      th Url
+      th = Gist.human_attribute_name('user')
+
+  = render @gists

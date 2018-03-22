@@ -21,11 +21,14 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-    result = GistQuestionService.new(@test_passage.current_question).call
-
-    if result
+    gist = current_user.gists.build
+    gist.question_id = @test_passage.current_question.id
+    if gist.valid?
+      result = GistQuestionService.new(@test_passage.current_question).call
+      gist.url = result.html_url
+      gist.save
       # в этом месте :target => '_blank' почему-то не рабоатет
-      flash[:info] = t('.success', gist_link: view_context.link_to( 'Gist', result.html_url, :target => '_blank'))
+      flash[:info] = t('.success', gist_link: view_context.link_to( 'Gist', gist.url, :target => '_blank'))
     else
       flash[:danger] = t('.failure')
     end

@@ -4,6 +4,9 @@ en:
       test: "Test"
 
     attributes:
+      gist:
+        question: "Question"
+        user: "User"
       test:
         title: "Title"
         level: "Level"
