@@ -11,7 +11,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
       li.nav-item.active
         =< link_to 'Admin Panel', admin_tests_path, class: 'nav-link'
       li.nav-item.active
-        =<> link_to 'Gists', admin_test_passages_gists_path, class: 'nav-link'
+        =<> link_to 'Gists', admin_gists_path, class: 'nav-link'
       li.nav-item.active
         =<> link_to 'Выйти', destroy_user_session_path, method: :delete, class: 'nav-link'
   span.navbar-text
