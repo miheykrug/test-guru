@@ -1,4 +1,4 @@
 tr
-  td = link_to "#{gist.question.body.truncate(25)}", admin_question_path(gist.question)
-  td = link_to "#{gist.path}", "https://gist.github.com/#{gist.path}", target: '_blank'
+  td = link_to gist.question.body.truncate(25), admin_question_path(gist.question)
+  td = link_to gist.path, "https://gist.github.com/#{gist.path}", target: '_blank'
   td = gist.user.email

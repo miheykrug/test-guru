@@ -22,7 +22,7 @@ class TestPassagesController < ApplicationController
 
   def gist
     result = GistQuestionService.new(@test_passage.current_question).call
-    if result
+    if result.created_at
       gist = current_user.gists.build(question_id: @test_passage.current_question_id, path: result.id)
       gist.save
       flash[:info] = t('.success', gist_link: view_context.link_to('Gist', result.html_url, :target => '_blank'))
