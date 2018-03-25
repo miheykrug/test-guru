@@ -48,8 +48,16 @@ en:
   test_passages:
     result:
       header: "The %{title} Test was Completed!"
+    gist:
+      success: "%{gist_link} was successfully created!"
+      failure: "An error occurred while saving gist"
 
   admin:
+    test_passages:
+      gists:
+        header: "Created gists"
+        action: "Action"
+
     tests:
       index:
         header: "Tricky Tests"
@@ -71,4 +79,6 @@ en:
     completed_test:
       subject: "You just completed TestGuru test!"
 
-
+  gist_question_service:
+    gist_params:
+      description: "A question about %{title} from TestGuru"

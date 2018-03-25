@@ -32,3 +32,6 @@ doc/
 .idea
 .idea/workspace.xml
 .secret
+
+# Ignore .env used for storing keys and access tokens
+.env
