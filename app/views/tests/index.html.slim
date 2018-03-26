@@ -3,7 +3,10 @@ h1 = t('.header')
 table.table.table-striped
   thead.thead-dark
     tr
-      th = Test.human_attribute_name('title')
+      th.sort-by-title.pointer
+        = Test.human_attribute_name('title')
+        = octicon 'arrow-up', class: 'text-success hide'
+        = octicon 'arrow-down', class: 'text-success hide'
       th = Test.human_attribute_name('level')
       th = Test.human_attribute_name('category')
       th = t('.action')
