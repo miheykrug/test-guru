@@ -16,7 +16,7 @@ function checkConfirmation() {
     this.querySelector('.octicon-check').classList.add('hide');
   }
 
-  if (passwordConfirmationInput.value === "") {
+  if (passwordConfirmationInput.value === "" || passwordConfirmationInput.value === null) {
     this.querySelector('.octicon-x').classList.add('hide');
     this.querySelector('.octicon-check').classList.add('hide');
   }
