@@ -1,9 +1,15 @@
 tr
-  td = test.title
-  td = test_level(test)
-  td = test.category.title
-  td = test.questions.size
-  td = link_to t('links.show'), admin_test_path(test)
-  td = link_to t('links.edit'), edit_admin_test_path(test)
-  td = link_to t('links.delete'), admin_test_path(test), method: :delete,
-              data: { confirm: t('links.confirm')}
+  td.align-middle
+    = content_tag :span, test.title, class: 'test-title', data: { test_id: test.id }
+    = render 'form_inline', test: test == @test ? @test : test
+  td.align-middle = test_level(test)
+  td.align-middle = test.category.title
+  td.align-middle = test.questions.size
+  td.align-middle = link_to t('links.show'), admin_test_path(test)
+  td.align-middle
+    = link_to t('links.edit'),
+              edit_admin_test_path(test),
+              data: { test_id: test.id, link_test: t('links.edit') },
+              class: 'form-inline-link'
+  td.align-middle = link_to t('links.delete'), admin_test_path(test), method: :delete,
+              data: { confirm: t('links.confirm') }

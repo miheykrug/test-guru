@@ -8,6 +8,14 @@ p
   |из
   =< @test_passage.test.questions.count
 
+/ Простой способ создать progress bar
+.progress
+  .progress-bar style="width: #{progress_percent(@test_passage)}%"
+
+/ Способ с использованием атрибута data (для задания)
+.progress.mt-2
+  = content_tag :div, '',class: 'progress-bar test-progress-bar', data: { test_progress: progress_percent(@test_passage) }
+
 p
   b = @test_passage.current_question.body
 

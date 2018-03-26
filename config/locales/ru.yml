@@ -36,7 +36,7 @@ ru:
       header:
         few: "Обнаружено %{count} ошибки"
         many: "Обнаружено %{count} ошибок"
-        one: "Обнаружено %{count} ошибка"
+        one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
 
   tests:
@@ -77,6 +77,8 @@ ru:
         header1: "Тест %{title}"
         header2: "Вопросы"
         new_question: "Создать новый вопрос"
+      form_inline:
+        submit: "OK"
 
   test_mailer:
     completed_test:
