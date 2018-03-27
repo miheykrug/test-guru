@@ -74,6 +74,8 @@ en:
         header1: "Test %{title}"
         header2: "Questions"
         new_question: "Create new question"
+      form_inline:
+        submit: "OK"
 
   test_mailer:
     completed_test:
