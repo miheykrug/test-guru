@@ -5,9 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-users = User.create([
-  { name: 'Миша', email: 'miheykrug@mail.ru'},
-  { name: 'Саша', email: 'sasha2013@gmail.com'}])
+
 
 categories = Category.create([
   { title: 'Frontend' },
@@ -15,11 +13,11 @@ categories = Category.create([
   { title: 'Other' }])
 
 tests = Test.create([
-  { title: 'HTML', category_id: categories[0].id, author_id: users[0].id },
-  { title: 'CSS',  category_id: categories[0].id, author_id: users[0].id },
-  { title: 'Ruby', level: 2, category_id: categories[1].id },
-  { title: 'Go',   level: 3, category_id: categories[1].id },
-  { title: 'SQL',  level: 1, category_id: categories[2].id }])
+  { title: 'HTML', level: 1, category_id: categories[0].id, author_id: User.first.id },
+  { title: 'CSS',  level: 1, category_id: categories[0].id, author_id: User.first.id },
+  { title: 'Ruby', level: 2, category_id: categories[1].id, author_id: User.first.id },
+  { title: 'Go',   level: 3, category_id: categories[1].id, author_id: User.first.id },
+  { title: 'SQL',  level: 1, category_id: categories[2].id, author_id: User.first.id }])
 
 questions = Question.create([
   { body: 'Что такое Ruby?',                          test_id: tests[2].id },
@@ -40,12 +38,12 @@ Answer.create([
   { body: 'язык структурированных запросов',
     correct: false, question_id: questions[4].id }])
 
-TestPassage.create([
-  { user_id: users[0].id, test_id: tests[0].id },
-  { user_id: users[0].id, test_id: tests[2].id },
-  { user_id: users[0].id, test_id: tests[3].id },
-  { user_id: users[0].id, test_id: tests[4].id },
-  { user_id: users[1].id, test_id: tests[0].id },
-  { user_id: users[1].id, test_id: tests[1].id },
-  { user_id: users[1].id, test_id: tests[2].id },
-  { user_id: users[1].id, test_id: tests[4].id }])
+# TestPassage.create([
+#   { user_id: users[0].id, test_id: tests[0].id },
+#   { user_id: users[0].id, test_id: tests[2].id },
+#   { user_id: users[0].id, test_id: tests[3].id },
+#   { user_id: users[0].id, test_id: tests[4].id },
+#   { user_id: users[1].id, test_id: tests[0].id },
+#   { user_id: users[1].id, test_id: tests[1].id },
+#   { user_id: users[1].id, test_id: tests[2].id },
+#   { user_id: users[1].id, test_id: tests[4].id }])

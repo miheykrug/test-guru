@@ -45,6 +45,11 @@ en:
     test:
       start_button: "Start test"
 
+  feedbacks:
+    new:
+      header: "Feedback"
+      submit: "Send"
+
   test_passages:
     result:
       header: "The %{title} Test was Completed!"

@@ -47,6 +47,10 @@ ru:
     test:
       start_button: "Пройти тест"
 
+  feedbacks:
+    new:
+      header: "Обратная связь"
+      submit: "Отправить"
 
   test_passages:
     result:

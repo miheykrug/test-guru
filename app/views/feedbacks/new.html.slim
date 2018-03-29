@@ -1,0 +1,14 @@
+.row.justify-content-center.mt-3
+  .col.col-md-4
+    .h2 = t('.header')
+    .card.border-primary
+      .card-body
+        = form_with model: @feedback, local: true do |f|
+          = render 'shared/errors', resource: @feedback
+          .form-group
+            p
+              = f.label :body
+              = f.text_area :body, autofocus: true, class: 'form-control', rows: 7
+
+
+            = f.submit t('.submit'), class: 'btn btn-primary'
