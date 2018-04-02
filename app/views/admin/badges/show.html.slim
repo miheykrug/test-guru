@@ -1,0 +1,17 @@
+h1 = t('.header')
+
+p
+  strong #{Badge.human_attribute_name('title')}:
+  =< @badge.title
+
+p
+  strong
+    '#{Badge.human_attribute_name('file_name')}:
+  = image_tag("badges/#{@badge.file_name}")
+
+p
+  strong #{Rule.human_attribute_name('description')}:
+  =< @badge.rule.description
+/ => link_to t('links.edit'), edit_admin_test_path
+/ ||
+=< link_to t('links.back'), admin_tests_path

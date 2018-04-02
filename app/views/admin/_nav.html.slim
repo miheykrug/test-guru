@@ -13,6 +13,8 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
       li.nav-item.active
         =<> link_to 'Gists', admin_gists_path, class: 'nav-link'
       li.nav-item.active
+        =<> link_to 'Badges', admin_badges_path, class: 'nav-link'
+      li.nav-item.active
         =<> link_to 'Выйти', destroy_user_session_path, method: :delete, class: 'nav-link'
   span.navbar-text
     ' Добро пожаловать,

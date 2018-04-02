@@ -5,8 +5,11 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_current_question
 
+  scope :successful, -> { where('result >= 85') }
+
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
+    self.result = self.result_to_percent
     save!
   end
 
@@ -35,6 +38,7 @@ class TestPassage < ApplicationRecord
   end
 
   def correct_answer?(answer_ids)
+    answer_ids ||= []
     correct_answers.ids.sort == answer_ids.map(&:to_i).sort
   end
 

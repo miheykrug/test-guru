@@ -1,0 +1,4 @@
+tr
+  td.align-middle = image_tag("badges/#{badge.file_name}")
+  td.align-middle = badge.title
+  td.align-middle = link_to t('links.show'), badge_path(badge)

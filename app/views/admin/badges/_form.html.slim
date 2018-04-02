@@ -1,0 +1,18 @@
+= form_with model: [:admin, @badge], local: true do |f|
+  = render 'shared/errors', resource: @badge
+
+  p
+    => f.label :title
+    = f.text_field :title, id: :badge_title
+
+  p
+    => f.label :file_name
+    = f.text_field :file_name, id: :badge_file_name
+
+  p
+    => f.label :rule_id
+    = f.collection_select :rule_id, Rule.all, :id, :description, prompt: true
+
+  p = f.submit
+
+= link_to t('links.back'), admin_tests_path

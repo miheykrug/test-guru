@@ -18,6 +18,8 @@ class Test < ApplicationRecord
   scope :by_category, -> (title) { joins(:category)
     .where(categories: { title: title })
     .order(title: :desc) }
+  scope :successful, -> { joins(:test_passages).merge(TestPassage.successful).distinct }
+
 
   def self.category_tests_list(title)
     self.by_category(title).pluck(:title)

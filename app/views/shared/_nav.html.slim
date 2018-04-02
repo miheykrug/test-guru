@@ -15,6 +15,8 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
           li.nav-item
             =< link_to 'Панель администратора', admin_tests_path, class: 'nav-link'
         li.nav-item
+          =< link_to 'Badges', badges_path, class: 'nav-link'
+        li.nav-item
           =< link_to 'Выйти', destroy_user_session_path, method: :delete, class: 'nav-link'
         li.nav-item
           =< link_to 'Обратная связь', new_feedback_path, class: 'nav-link'
