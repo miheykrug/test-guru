@@ -17,6 +17,10 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
+  def completed
+    self.current_question = nil
+  end
+
   def result_to_percent
     (correct_questions * 100) / test.questions.size
   end

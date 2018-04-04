@@ -2,6 +2,8 @@ h1
   | Прохождение теста
   =< @test_passage.test.title
 
+= render 'shared/timer'
+
 p
   |Вопрос
   =<> @test_passage.current_question_number
@@ -9,17 +11,19 @@ p
   =< @test_passage.test.questions.count
 
 / Простой способ создать progress bar
-.progress
-  .progress-bar style="width: #{progress_percent(@test_passage)}%"
+/ .progress
+/   .progress-bar style="width: #{progress_percent(@test_passage)}%"
 
 / Способ с использованием атрибута data (для задания)
 .progress.mt-2
-  = content_tag :div, '',class: 'progress-bar test-progress-bar', data: { test_progress: progress_percent(@test_passage) }
+  = content_tag :div, '',class: 'progress-bar test-progress-bar',
+                data: { test_progress: progress_percent(@test_passage) }
 
 p
   b = @test_passage.current_question.body
 
-= form_with url: test_passage_path(@test_passage), local: true, method: :put do |f|
+= form_with url: test_passage_path(@test_passage), local: true, method: :put, id: 'test_passage_form' do |f|
+  = f.hidden_field :end_test_passage, { value: false, id: 'end_test_passage' }
   = f.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b|
     p
       = b.check_box id: "answer_ids_#{b.object.id}"

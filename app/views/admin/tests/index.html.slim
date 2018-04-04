@@ -12,6 +12,7 @@ table.table.table-striped
         = octicon 'arrow-down', class: 'text-success hide'
       th = Test.human_attribute_name('level')
       th = Test.human_attribute_name('category')
+      th = Test.human_attribute_name('timer')
       th = t('.quantity')
       th.text-center colspan="3" = t('.action')
   = render @tests

@@ -13,6 +13,11 @@
     => f.label :category_id
     = f.collection_select :category_id, Category.all, :id, :title, prompt: true
 
+  p
+    => f.label :timer
+    => f.number_field :timer, id: :test_timer
+    | min
+
   p = f.submit
 
 = link_to t('links.back'), admin_tests_path
