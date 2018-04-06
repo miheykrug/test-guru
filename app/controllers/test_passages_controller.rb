@@ -1,7 +1,6 @@
 class TestPassagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_test_passage, only: %i[show result update gist rescue_from_validation_failed]
-  before_action :set_timer_end, only: %i[show update]
 
   rescue_from Octokit::UnprocessableEntity, with: :rescue_from_validation_failed
 
@@ -13,7 +12,7 @@ class TestPassagesController < ApplicationController
 
   def update
     @test_passage.accept!(params[:answer_ids])
-    @test_passage.completed if (params[:end_test_passage] == 'true')
+    @test_passage.completed if (@test_passage.time_left < 1 )
     if @test_passage.completed?
       badges = check_badges
       current_user.badges.push(badges)
@@ -41,10 +40,6 @@ class TestPassagesController < ApplicationController
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
-  end
-
-  def set_timer_end
-    @timer_end = (@test_passage.created_at.to_f * 1000).to_i + @test_passage.test.timer * 60 * 1000
   end
 
   def rescue_from_validation_failed

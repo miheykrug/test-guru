@@ -21,6 +21,14 @@ class TestPassage < ApplicationRecord
     self.current_question = nil
   end
 
+  def time_left
+    test_end - Time.current
+  end
+
+  def test_end
+    created_at + test.timer * 60
+  end
+
   def result_to_percent
     (correct_questions * 100) / test.questions.size
   end

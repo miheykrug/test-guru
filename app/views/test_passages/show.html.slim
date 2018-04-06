@@ -2,7 +2,12 @@ h1
   | Прохождение теста
   =< @test_passage.test.title
 
-= render 'shared/timer'
+= content_tag :div, id: 'timer', data: {timer_end: @test_passage.test_end.to_i} do
+  span.hour hh
+  |:
+  span.min mm
+  |:
+  span.sec ss
 
 p
   |Вопрос
@@ -23,7 +28,6 @@ p
   b = @test_passage.current_question.body
 
 = form_with url: test_passage_path(@test_passage), local: true, method: :put, id: 'test_passage_form' do |f|
-  = f.hidden_field :end_test_passage, { value: false, id: 'end_test_passage' }
   = f.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b|
     p
       = b.check_box id: "answer_ids_#{b.object.id}"
