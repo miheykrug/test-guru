@@ -14,8 +14,9 @@ class TestPassagesController < ApplicationController
     @test_passage.accept!(params[:answer_ids])
     @test_passage.completed if (@test_passage.time_left < 1 )
     if @test_passage.completed?
-      badges = GivingBadgesService.check_badges(current_user)
+      badges = GivingBadgesService.new(@test_passage).check_badges
       current_user.badges.push(badges)
+      flash[:info] = 'Вы получили новый значок!' if badges.any?
       TestsMailer.completed_test(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)
     else

@@ -11,7 +11,7 @@
 
   p
     => f.label :file_name
-    = f.select :file_name, GivingBadgesService::IMAGES, prompt: true
+    = f.select :file_name, Badge::IMAGES, prompt: true
 
   p
     => f.label :rule
