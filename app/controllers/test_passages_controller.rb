@@ -14,11 +14,10 @@ class TestPassagesController < ApplicationController
     @test_passage.accept!(params[:answer_ids])
     @test_passage.completed if (@test_passage.time_left < 1 )
     if @test_passage.completed?
-      badges = check_badges
+      badges = GivingBadgesService.check_badges(current_user)
       current_user.badges.push(badges)
       TestsMailer.completed_test(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)
-
     else
       render :show
     end
@@ -45,18 +44,6 @@ class TestPassagesController < ApplicationController
   def rescue_from_validation_failed
     flash[:danger] = t('.failure')
     redirect_back(fallback_location: @test_passage)
-  end
-
-  def check_badges
-    badges = []
-    Badge.find_each do |badge|
-      if Rule.send(badge.rule.method.to_sym, current_user) && !current_user.badges.exists?(badge.id)
-
-        badges << badge
-      end
-    end
-
-    badges
   end
 
 end
