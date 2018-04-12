@@ -12,7 +12,10 @@ class TestPassagesController < ApplicationController
 
   def update
     @test_passage.accept!(params[:answer_ids])
-    @test_passage.completed if (@test_passage.time_left < 1 )
+    if (@test_passage.time_left < 1 )
+      @test_passage.completed
+      flash[:danger] = 'Время вышло!'
+    end
     if @test_passage.completed?
       badges = GivingBadgesService.new(@test_passage).select_badges
       current_user.badges.push(badges)
