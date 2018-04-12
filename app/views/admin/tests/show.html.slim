@@ -9,6 +9,12 @@ p
     '#{Test.human_attribute_name('author')}:
   | #{@test.author.first_name} #{@test.author.last_name}
 
+p
+  strong
+    '#{Test.human_attribute_name('timer')}:
+  =<> @test.timer
+  | min
+
 h2 = t('.header2')
 
 = link_to t('.new_question'), new_admin_test_question_path(@test)

@@ -4,6 +4,10 @@ tr
     = render 'form_inline', test: test == @test ? @test : test
   td.align-middle = test_level(test)
   td.align-middle = test.category.title
+  td.align-middle
+    - if test.timer
+      => test.timer
+      | min
   td.align-middle = test.questions.size
   td.align-middle = link_to t('links.show'), admin_test_path(test)
   td.align-middle

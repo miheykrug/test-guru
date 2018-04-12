@@ -1,0 +1,22 @@
+= form_with model: [:admin, @badge], local: true do |f|
+  = render 'shared/errors', resource: @badge
+
+  p
+    => f.label :title
+    = f.text_field :title, id: :badge_title
+
+  p
+    => f.label :description
+    = f.text_field :description, id: :badge_description
+
+  p
+    => f.label :file_name
+    = f.select :file_name, Dir['app/assets/images/badges/*'].map { |path| File.basename(path) }, prompt: true
+
+  p
+    => f.label :rule
+    = f.select :rule, Badge::RULES.invert, prompt: true
+
+  p = f.submit
+
+= link_to t('links.back'), admin_tests_path

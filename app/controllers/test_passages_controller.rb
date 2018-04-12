@@ -12,7 +12,14 @@ class TestPassagesController < ApplicationController
 
   def update
     @test_passage.accept!(params[:answer_ids])
+    if (@test_passage.time_left < 1 )
+      @test_passage.completed
+      flash[:danger] = 'Время вышло!'
+    end
     if @test_passage.completed?
+      badges = GivingBadgesService.new(@test_passage).select_badges
+      current_user.badges.push(badges)
+      flash[:info] = 'Вы получили новый значок!' if badges.any?
       TestsMailer.completed_test(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)
     else
@@ -42,4 +49,5 @@ class TestPassagesController < ApplicationController
     flash[:danger] = t('.failure')
     redirect_back(fallback_location: @test_passage)
   end
+
 end

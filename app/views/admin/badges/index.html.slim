@@ -1,0 +1,11 @@
+h1 = t('.header')
+
+p = link_to t('.new'), new_admin_badge_path
+
+table.table.table-striped
+  thead.thead-dark
+    tr
+      th = Badge.human_attribute_name('file_name')
+      th = Badge.human_attribute_name('title')
+      th.text-center colspan="3" = t('.action')
+  = render @badges

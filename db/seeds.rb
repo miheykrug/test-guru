@@ -38,6 +38,15 @@ Answer.create([
   { body: 'язык структурированных запросов',
     correct: false, question_id: questions[4].id }])
 
+
+Rule.create([
+  { description: 'Успешное прохождение всех тестов из категории Backend',
+    method: 'all_backend?' },
+  { description: 'Успешное прохождение теста с первой попытки',
+    method: 'first_try?' },
+  { description: 'Успешное прохождение всех тестов уровня easy',
+    method: 'all_easy?' }
+                    ])
 # TestPassage.create([
 #   { user_id: users[0].id, test_id: tests[0].id },
 #   { user_id: users[0].id, test_id: tests[2].id },
