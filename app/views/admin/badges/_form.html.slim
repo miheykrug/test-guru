@@ -11,11 +11,11 @@
 
   p
     => f.label :file_name
-    = f.select :file_name, Badge::IMAGES, prompt: true
+    = f.select :file_name, Dir['app/assets/images/badges/*'].map { |path| File.basename(path) }, prompt: true
 
   p
     => f.label :rule
-    = f.select :rule, GivingBadgesService::RULES.invert, prompt: true
+    = f.select :rule, Badge::RULES.invert, prompt: true
 
   p = f.submit
 

@@ -1,15 +1,12 @@
 class GivingBadgesService
-  RULES = { all_backend?: 'Успешное прохождение всех тестов из категории Backend',
-            first_try?: 'Успешное прохождение теста с первой попытки',
-            all_easy?: 'Успешное прохождение всех тестов уровня easy' }.freeze
 
   def initialize(test_passage)
     @test_passage = test_passage
     @user = test_passage.user
   end
 
-  def check_badges
-    Badge.all.select { |badge| !@user.badges.exists?(badge.id) && send(badge.rule.to_sym) }
+  def select_badges
+    Badge.all.select { |badge| !@user.badges.exists?(badge.id) && send(badge.rule) }
   end
 
   private
