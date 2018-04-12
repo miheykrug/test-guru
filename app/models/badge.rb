@@ -1,6 +1,10 @@
 class Badge < ApplicationRecord
 
-  belongs_to :rule
+  RULES = { all_backend?: 'Успешное прохождение всех тестов из категории Backend',
+            first_try?: 'Успешное прохождение теста с первой попытки',
+            all_easy?: 'Успешное прохождение всех тестов уровня easy' }.freeze
+  IMAGES = %w[backend.png easy.png first.png].freeze
+
   has_many :user_badges
   has_many :users, through: :user_badges
 

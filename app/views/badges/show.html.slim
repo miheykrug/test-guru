@@ -10,6 +10,6 @@ p
   = image_tag("badges/#{@badge.file_name}")
 
 p
-  strong #{Rule.human_attribute_name('description')}:
-  =< @badge.rule.description
+  strong #{Badge.human_attribute_name('description')}:
+  =< @badge.description
 =< link_to t('links.back'), root_path

@@ -6,12 +6,16 @@
     = f.text_field :title, id: :badge_title
 
   p
-    => f.label :file_name
-    = f.text_field :file_name, id: :badge_file_name
+    => f.label :description
+    = f.text_field :description, id: :badge_description
 
   p
-    => f.label :rule_id
-    = f.collection_select :rule_id, Rule.all, :id, :description, prompt: true
+    => f.label :file_name
+    = f.select :file_name, Dir['app/assets/images/badges/*'].map { |path| File.basename(path) }, prompt: true
+
+  p
+    => f.label :rule
+    = f.select :rule, Badge::RULES.invert, prompt: true
 
   p = f.submit
 

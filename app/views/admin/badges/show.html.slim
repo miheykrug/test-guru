@@ -10,8 +10,8 @@ p
   = image_tag("badges/#{@badge.file_name}")
 
 p
-  strong #{Rule.human_attribute_name('description')}:
-  =< @badge.rule.description
+  strong #{Badge.human_attribute_name('description')}:
+  =< @badge.description
 / => link_to t('links.edit'), edit_admin_test_path
 / ||
 =< link_to t('links.back'), admin_tests_path

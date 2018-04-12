@@ -26,11 +26,11 @@ ActiveRecord::Schema.define(version: 20180403173741) do
 
   create_table "badges", force: :cascade do |t|
     t.string "title", null: false
+    t.string "description"
     t.string "file_name", null: false
-    t.bigint "rule_id", null: false
+    t.string "rule", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["rule_id"], name: "index_badges_on_rule_id"
   end
 
   create_table "categories", id: :serial, force: :cascade do |t|
@@ -63,13 +63,6 @@ ActiveRecord::Schema.define(version: 20180403173741) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["test_id"], name: "index_questions_on_test_id"
-  end
-
-  create_table "rules", force: :cascade do |t|
-    t.string "description"
-    t.string "method"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "test_passages", id: :serial, force: :cascade do |t|
